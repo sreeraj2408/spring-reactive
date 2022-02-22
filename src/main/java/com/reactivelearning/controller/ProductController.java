@@ -24,8 +24,8 @@ public class ProductController {
     }
 
     @GetMapping
-    public Flux<ProductDto> getAllProducts() {
-        return service.findAllProducts();
+    public ResponseEntity<Flux<ProductDto>> getAllProducts() {
+        return ResponseEntity.ok(service.findAllProducts());
     }
 
     @GetMapping(value = "/events", produces = MediaType.TEXT_EVENT_STREAM_VALUE)

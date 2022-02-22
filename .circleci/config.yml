@@ -1,0 +1,13 @@
+version: 2.1
+jobs:
+  build-app:
+    docker:
+      - image: 11-buster-node-browsers-legacy
+    steps:
+      - checkout
+      - run: run: ./mvnw clean install
+
+workflows:
+  build-workflow:
+    jobs:
+      - build-app
